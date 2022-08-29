@@ -1,64 +1,50 @@
-import React from 'react'
-import '../Css/style.css'
-
+import React, { useContext } from 'react'
+import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom'
+import { store } from './Data'
 const Student_form = () => {
+  const [state] = useContext(store)
   return (
-    <>
-       <h1>Student's Details</h1>
-        <table>
+    <div>
+      <div className="student_nav_ctn">
+        <h1>Student Details</h1>
+        <Link className='add_student_button' to="/AddStudent">Add Students</Link>
+      </div>
+     <div className='container'>
+        <Table striped bordered hover variant='danger'>
+          <thead>
             <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Roll no</th>
-                <th>Batch</th>
-                <th>Course</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Course</th>
+              <th>Branch</th>
+              <th>Change</th>
             </tr>
-            <tr>
-                <td>John</td>
-                <td>24</td>
-                <td>001</td>
-                <td>April</td>
-                <td>Full Stack Developer</td>
-                
+          </thead>
+          <tbody>
+            {state.map((item) => (<tr key={item.id}>
+
+              <td>{item.Name}</td>
+              <td>{item.Age}</td>
+              <td>{item.Course}</td>
+              <td>{item.Branch}</td>
+              <td><Link to="/edit">Edit</Link></td>
+
             </tr>
-            <tr>
-                <td>Doe</td>
-                <td>25</td>
-                <td>002</td>
-                <td>May</td>
-                <td>MERN</td>
-            </tr>
-            <tr>
-                <td>Biden</td>
-                <td>24</td>
-                <td>003</td>
-                <td>April</td>
-                <td>Full Stack Developer</td>
-            </tr>
-            <tr>
-                <td>Barar</td>
-                <td>25</td>
-                <td>004</td>
-                <td>May</td>
-                <td>MERN</td>
-            </tr>
-            <tr>
-                <td>Christ</td>
-                <td>25</td>
-                <td>005</td>
-                <td>April</td>
-                <td>Full Stack Developer</td>
-            </tr>
-            <tr>
-                <td>Elent</td>
-                <td>24</td>
-                <td>006</td>
-                <td>May</td>
-                <td>MERN</td>
-            </tr>
-        </table>
-    </>
+
+
+            ))}
+
+
+          </tbody>
+        </Table>
+      </div>
+    </div>
   )
 }
 
 export default Student_form;
+
+
+
+
