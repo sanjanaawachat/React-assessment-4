@@ -28,7 +28,7 @@ const Student_form = () => {
               <td>{item.Age}</td>
               <td>{item.Course}</td>
               <td>{item.Branch}</td>
-              <td><Link to="/edit">Edit</Link></td>
+              <td><Link to="/Edit">Edit</Link></td>
 
             </tr>
 

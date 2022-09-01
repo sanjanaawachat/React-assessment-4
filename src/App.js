@@ -8,7 +8,7 @@ import './Css/style.css';
 import Student_form from './Components/Student_form';
 import Data from "./Components/Data"
 import AddStudent from './Components/AddStudent';
-
+import Edit from './Components/Edit'
 function App() {
   return (
    <Data> 
@@ -18,6 +18,7 @@ function App() {
     <Route path='/Home' element={<Home/>}/>
     <Route path='/Student_form' element={<Student_form/>}/>
     <Route path='/AddStudent' element={<AddStudent/>}/>
+    <Route path='/Edit' element={<Edit/>}/>
     <Route path='/Contact' element={<Contact/>}/>
    </Routes>
 
